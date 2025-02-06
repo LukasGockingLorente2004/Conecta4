@@ -27,7 +27,7 @@ public class Table {
             System.out.println();
             System.out.println("---------------------");
         }
-        System.out.println();
+        System.out.println(" ");
     }
 
     public static char [][] placeToken (char [][] taula, int pos1, int pos2, char token){

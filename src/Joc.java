@@ -16,7 +16,7 @@ public class Joc {
     }
 
     public static void play (Table table){
-
+        
     }
 
     public static boolean checkEnd(char[][] taula) {
