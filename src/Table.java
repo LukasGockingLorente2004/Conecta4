@@ -31,9 +31,12 @@ public class Table {
         System.out.println(" ");
     }
 
-    public static char [][] placeToken (char [][] taula, int pos1, int pos2, char token){
-        if (taula[pos1][pos2] == ' '){
-            taula[pos1][pos2] = token;
+    public static char [][] placeToken (char [][] taula, int pos, char token){
+
+        for (int i = 0; i < taula.length; i++) {
+            if (taula[pos][i] == ' '){
+                taula[pos][i] = token;
+            }
         }
 
         return taula;
