@@ -31,15 +31,18 @@ public class Table {
         System.out.println(" ");
     }
 
-    public static char [][] placeToken (char [][] taula, int pos, char token){
+    public static char [][] placeToken (char [][] table, int pos, char token){
 
-        for (int i = 0; i < taula.length; i++) {
-            if (taula[pos][i] == ' '){
-                taula[pos][i] = token;
+        pos--;
+
+        for (int i = 0; i < table.length; i++) {
+            if (table[table.length - 1 - i][pos] == ' '){
+                table[table.length - 1 - i][pos] = token;
+                break;
             }
         }
 
-        return taula;
+        return table;
     }
 
     public static char [][] resetTable (char [][] table){
