@@ -27,6 +27,7 @@ public class Table {
             System.out.println();
             System.out.println("---------------------");
         }
+        System.out.println(" 1  2  3  4  5  6  7 ");
         System.out.println(" ");
     }
 
@@ -45,5 +46,53 @@ public class Table {
             }
         }
         return table;
+    }
+
+    public static boolean checkEnd(char[][] taula) {
+        int rows = taula.length;
+        int columns = taula[0].length;
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+
+                // Comprobació vertical
+                if (i + 3 < rows &&
+                        taula[i][j] != ' ' &&
+                        taula[i][j] == taula[i+1][j] &&
+                        taula[i][j] == taula[i+2][j] &&
+                        taula[i][j] == taula[i+3][j]) {
+                    return true;
+                }
+
+                // Comprobació horizontal
+                if (j + 3 < columns &&
+                        taula[i][j] != ' ' &&
+                        taula[i][j] == taula[i][j+1] &&
+                        taula[i][j] == taula[i][j+2] &&
+                        taula[i][j] == taula[i][j+3]) {
+                    return true;
+                }
+
+                // Comprobació diagonal descendent
+                if (i + 3 < rows && j + 3 < columns &&
+                        taula[i][j] != ' ' &&
+                        taula[i][j] == taula[i+1][j+1] &&
+                        taula[i][j] == taula[i+2][j+2] &&
+                        taula[i][j] == taula[i+3][j+3]) {
+                    return true;
+                }
+
+                // Comprobació diagonal ascendent
+                if (i + 3 < rows && j - 3 >= 0 &&
+                        taula[i][j] != ' ' &&
+                        taula[i][j] == taula[i+1][j-1] &&
+                        taula[i][j] == taula[i+2][j-2] &&
+                        taula[i][j] == taula[i+3][j-3]) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 }

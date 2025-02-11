@@ -1,69 +1,34 @@
+import java.util.Scanner;
+
 public class Joc {
-    public static void main(String[] args) {
+
+    public static void play (){
+
+        System.out.println("Introdueix el nom del jugador 1");
+
+        Scanner scanner1 = new Scanner(System.in);
+        String Scanner1 = scanner1.nextLine();
+
+        Player jugador1 = new Player(Scanner1,'O');
+
+        Scanner scanner2 = new Scanner(System.in);
+        String Scanner2 = scanner2.nextLine();
+
+        Player jugador2 = new Player(Scanner2,'X');
 
         Table table = new Table();
 
+        int End = 0;
 
+        while (End == 0){
 
-        table.placeToken(table.getTable(),0,0,'X');
+            table.printTable(table.getTable());
 
-        table.printTable(table.getTable());
+            System.out.println("Introduex la posició o vols posar la fitxa ");
 
-        table.setTable(table.resetTable(table.getTable()));
-
-        table.printTable(table.getTable());
-
-    }
-
-    public static void play (Table table){
-        
-    }
-
-    public static boolean checkEnd(char[][] taula) {
-        int rows = taula.length;
-        int columns = taula[0].length;
-
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < columns; j++) {
-
-                // Comprobació vertical
-                if (i + 3 < rows &&
-                        taula[i][j] != ' ' &&
-                        taula[i][j] == taula[i+1][j] &&
-                        taula[i][j] == taula[i+2][j] &&
-                        taula[i][j] == taula[i+3][j]) {
-                    return true;
-                }
-
-                // Comprobació horizontal
-                if (j + 3 < columns &&
-                        taula[i][j] != ' ' &&
-                        taula[i][j] == taula[i][j+1] &&
-                        taula[i][j] == taula[i][j+2] &&
-                        taula[i][j] == taula[i][j+3]) {
-                    return true;
-                }
-
-                // Comprobació diagonal descendent
-                if (i + 3 < rows && j + 3 < columns &&
-                        taula[i][j] != ' ' &&
-                        taula[i][j] == taula[i+1][j+1] &&
-                        taula[i][j] == taula[i+2][j+2] &&
-                        taula[i][j] == taula[i+3][j+3]) {
-                    return true;
-                }
-
-                // Comprobació diagonal ascendent
-                if (i + 3 < rows && j - 3 >= 0 &&
-                        taula[i][j] != ' ' &&
-                        taula[i][j] == taula[i+1][j-1] &&
-                        taula[i][j] == taula[i+2][j-2] &&
-                        taula[i][j] == taula[i+3][j-3]) {
-                    return true;
-                }
-            }
         }
 
-        return false;
     }
+
+
 }
