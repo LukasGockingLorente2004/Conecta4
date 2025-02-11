@@ -15,10 +15,6 @@ public class Table {
         return table;
     }
 
-    public void setTable(char[][] table) {
-        this.table = table;
-    }
-
     public static void printTable (char [][] table){
         for (int i = 0; i < table.length; i++) {
             for (int j = 0; j < table[0].length; j++) {
@@ -41,15 +37,6 @@ public class Table {
             }
         }
 
-        return table;
-    }
-
-    public static char [][] resetTable (char [][] table){
-        for (int i = 0; i < 6; i++) {
-            for (int j = 0; j < 7; j++) {
-                table[i][j] = '.';
-            }
-        }
         return table;
     }
 

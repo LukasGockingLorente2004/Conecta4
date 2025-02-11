@@ -9,10 +9,6 @@ public class Player {
         this.token = token;
     }
 
-    public Player() {
-
-    }
-
     public String getName() {
         return name;
     }
