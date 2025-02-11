@@ -6,7 +6,7 @@ public class Table {
         this.table = new char[6][7]; // Crea un array vacío (inicializado con '\0')
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 7; j++) {
-                table[i][j] = ' '; // Llena el tablero con espacios en blanco
+                table[i][j] = '.'; // Llena el tablero con espacios en blanco
             }
         }
     }
@@ -22,10 +22,9 @@ public class Table {
     public static void printTable (char [][] table){
         for (int i = 0; i < table.length; i++) {
             for (int j = 0; j < table[0].length; j++) {
-                System.out.print( "|" + table[i][j] + "|");
+                System.out.print(" " + table[i][j] + " ");
             }
             System.out.println();
-            System.out.println("---------------------");
         }
         System.out.println(" 1  2  3  4  5  6  7 ");
         System.out.println(" ");
@@ -36,7 +35,7 @@ public class Table {
         pos--;
 
         for (int i = 0; i < table.length; i++) {
-            if (table[table.length - 1 - i][pos] == ' '){
+            if (table[table.length - 1 - i][pos] == '.'){
                 table[table.length - 1 - i][pos] = token;
                 break;
             }
@@ -48,7 +47,7 @@ public class Table {
     public static char [][] resetTable (char [][] table){
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 7; j++) {
-                table[i][j] = ' '; // Llena el tablero con espacios en blanco
+                table[i][j] = '.';
             }
         }
         return table;
@@ -63,7 +62,7 @@ public class Table {
 
                 // Comprobació vertical
                 if (i + 3 < rows &&
-                        taula[i][j] != ' ' &&
+                        taula[i][j] != '.' &&
                         taula[i][j] == taula[i+1][j] &&
                         taula[i][j] == taula[i+2][j] &&
                         taula[i][j] == taula[i+3][j]) {
@@ -72,7 +71,7 @@ public class Table {
 
                 // Comprobació horizontal
                 if (j + 3 < columns &&
-                        taula[i][j] != ' ' &&
+                        taula[i][j] != '.' &&
                         taula[i][j] == taula[i][j+1] &&
                         taula[i][j] == taula[i][j+2] &&
                         taula[i][j] == taula[i][j+3]) {
@@ -81,7 +80,7 @@ public class Table {
 
                 // Comprobació diagonal descendent
                 if (i + 3 < rows && j + 3 < columns &&
-                        taula[i][j] != ' ' &&
+                        taula[i][j] != '.' &&
                         taula[i][j] == taula[i+1][j+1] &&
                         taula[i][j] == taula[i+2][j+2] &&
                         taula[i][j] == taula[i+3][j+3]) {
@@ -90,7 +89,7 @@ public class Table {
 
                 // Comprobació diagonal ascendent
                 if (i + 3 < rows && j - 3 >= 0 &&
-                        taula[i][j] != ' ' &&
+                        taula[i][j] != '.' &&
                         taula[i][j] == taula[i+1][j-1] &&
                         taula[i][j] == taula[i+2][j-2] &&
                         taula[i][j] == taula[i+3][j-3]) {
