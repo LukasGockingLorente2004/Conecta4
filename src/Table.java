@@ -3,10 +3,10 @@ public class Table {
     private char [][] table = new char[6][7];
 
     public Table() {
-        this.table = new char[6][7]; // Crea un array vacío (inicializado con '\0')
+        this.table = new char[6][7];
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 7; j++) {
-                table[i][j] = '.'; // Llena el tablero con espacios en blanco
+                table[i][j] = '.';
             }
         }
     }
@@ -47,7 +47,6 @@ public class Table {
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
 
-                // Comprobació vertical
                 if (i + 3 < rows &&
                         taula[i][j] != '.' &&
                         taula[i][j] == taula[i+1][j] &&
@@ -56,7 +55,6 @@ public class Table {
                     return true;
                 }
 
-                // Comprobació horizontal
                 if (j + 3 < columns &&
                         taula[i][j] != '.' &&
                         taula[i][j] == taula[i][j+1] &&
@@ -65,7 +63,6 @@ public class Table {
                     return true;
                 }
 
-                // Comprobació diagonal descendent
                 if (i + 3 < rows && j + 3 < columns &&
                         taula[i][j] != '.' &&
                         taula[i][j] == taula[i+1][j+1] &&
@@ -74,7 +71,6 @@ public class Table {
                     return true;
                 }
 
-                // Comprobació diagonal ascendent
                 if (i + 3 < rows && j - 3 >= 0 &&
                         taula[i][j] != '.' &&
                         taula[i][j] == taula[i+1][j-1] &&
