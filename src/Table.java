@@ -1,6 +1,6 @@
 public class Table {
 
-    private Token [][] table = new Token[6][7];
+    private final Token [][] table;
 
 
 
@@ -11,10 +11,6 @@ public class Table {
                 table[i][j] = Token.Empty;
             }
         }
-    }
-
-    public Token[][] getTable() {
-        return table;
     }
 
     public void printTable (){

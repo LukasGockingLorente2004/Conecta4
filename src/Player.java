@@ -1,8 +1,8 @@
 public class Player {
 
-    private String name;
+    private final String name;
 
-    private Token token;
+    private final Token token;
 
     public Player(String name, Token token) {
         this.name = name;

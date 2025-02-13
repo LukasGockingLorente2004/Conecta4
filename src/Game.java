@@ -7,19 +7,9 @@ public class Game {
 
     public static void play (){
 
-        System.out.println("Introdueix el nom del jugador 1");
+        Player jugador1 = new Player(askPlayerName(1),Token.Circle);
 
-        Scanner scanner1 = new Scanner(System.in);
-        String Scanner1 = scanner1.nextLine();
-
-        Player jugador1 = new Player(Scanner1,Token.Circle);
-
-        System.out.println("Introdueix el nom del jugador 2");
-
-        Scanner scanner2 = new Scanner(System.in);
-        String Scanner2 = scanner2.nextLine();
-
-        Player jugador2 = new Player(Scanner2,Token.Cross);
+        Player jugador2 = new Player(askPlayerName(2),Token.Cross);
 
         Table table = new Table();
 
@@ -55,10 +45,14 @@ public class Game {
                 System.out.println("Ha guanyat: " + jugador2.getName());
                 End++;
             }
-
-
         }
+    }
 
+    private static String askPlayerName (int playerNumber){
+        System.out.println("Introdueix el nom del jugador " + playerNumber);
+
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextLine();
     }
 
 
