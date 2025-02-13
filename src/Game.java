@@ -7,9 +7,9 @@ public class Game {
 
     public static void play (){
 
-        Player jugador1 = new Player(askPlayerName(1),Token.Circle);
+        Player player1 = new Player(askPlayerName(1),Token.Circle);
 
-        Player jugador2 = new Player(askPlayerName(2),Token.Cross);
+        Player player2 = new Player(askPlayerName(2),Token.Cross);
 
         Table table = new Table();
 
@@ -19,30 +19,20 @@ public class Game {
 
             table.printTable();
 
-            System.out.println("Introduex la posició on vols posar la fitxa ");
-
-            Scanner scanner3 = new Scanner(System.in);
-            int pos1 = scanner3.nextInt();
-
-            table.placeToken(pos1,jugador1.getToken());
+            table.placeToken(askTokenPosition(),player1.getToken());
 
             table.printTable();
 
             if (table.checkEnd()){
-                System.out.println("Ha guanyat: " + jugador1.getName());
+                printFinale(player1);
                 End++;
             }
 
-            System.out.println("Introduex la posició on vols posar la fitxa ");
-
-            Scanner scanner4 = new Scanner(System.in);
-            int pos2 = scanner3.nextInt();
-
-            table.placeToken(pos2,jugador2.getToken());
+            table.placeToken(askTokenPosition(),player2.getToken());
 
             if (table.checkEnd()){
                 table.printTable();
-                System.out.println("Ha guanyat: " + jugador2.getName());
+                printFinale(player2);
                 End++;
             }
         }
@@ -53,6 +43,18 @@ public class Game {
 
         Scanner scanner = new Scanner(System.in);
         return scanner.nextLine();
+    }
+
+    private static int askTokenPosition (){
+        System.out.println("Introduex la posició on vols posar la fitxa ");
+
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextInt();
+    }
+
+    private static void printFinale (Player player){
+        System.out.println("La partida ha acabat.");
+        System.out.println("Ha guanyat: " + player.getName());
     }
 
 
