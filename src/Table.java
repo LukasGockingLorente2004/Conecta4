@@ -1,24 +1,26 @@
 public class Table {
 
-    private char [][] table = new char[6][7];
+    private Token [][] table = new Token[6][7];
+
+
 
     public Table() {
-        this.table = new char[6][7];
+        this.table = new Token[6][7];
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 7; j++) {
-                table[i][j] = '.';
+                table[i][j] = Token.Empty;
             }
         }
     }
 
-    public char[][] getTable() {
+    public Token[][] getTable() {
         return table;
     }
 
-    public static void printTable (char [][] table){
+    public void printTable (){
         for (int i = 0; i < table.length; i++) {
             for (int j = 0; j < table[0].length; j++) {
-                System.out.print(" " + table[i][j] + " ");
+                System.out.print(" " + table[i][j].label + " ");
             }
             System.out.println();
         }
@@ -26,12 +28,12 @@ public class Table {
         System.out.println(" ");
     }
 
-    public static char [][] placeToken (char [][] table, int pos, char token){
+    public Token [][] placeToken (int pos, Token token){
 
         pos--;
 
         for (int i = 0; i < table.length; i++) {
-            if (table[table.length - 1 - i][pos] == '.'){
+            if (table[table.length - 1 - i][pos] == Token.Empty){
                 table[table.length - 1 - i][pos] = token;
                 break;
             }
@@ -40,42 +42,42 @@ public class Table {
         return table;
     }
 
-    public static boolean checkEnd(char[][] taula) {
-        int rows = taula.length;
-        int columns = taula[0].length;
+    public boolean checkEnd() {
+        int rows = table.length;
+        int columns = table[0].length;
 
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
 
                 if (i + 3 < rows &&
-                        taula[i][j] != '.' &&
-                        taula[i][j] == taula[i+1][j] &&
-                        taula[i][j] == taula[i+2][j] &&
-                        taula[i][j] == taula[i+3][j]) {
+                        table[i][j] != Token.Empty &&
+                        table[i][j] == table[i+1][j] &&
+                        table[i][j] == table[i+2][j] &&
+                        table[i][j] == table[i+3][j]) {
                     return true;
                 }
 
                 if (j + 3 < columns &&
-                        taula[i][j] != '.' &&
-                        taula[i][j] == taula[i][j+1] &&
-                        taula[i][j] == taula[i][j+2] &&
-                        taula[i][j] == taula[i][j+3]) {
+                        table[i][j] != Token.Empty &&
+                        table[i][j] == table[i][j+1] &&
+                        table[i][j] == table[i][j+2] &&
+                        table[i][j] == table[i][j+3]) {
                     return true;
                 }
 
                 if (i + 3 < rows && j + 3 < columns &&
-                        taula[i][j] != '.' &&
-                        taula[i][j] == taula[i+1][j+1] &&
-                        taula[i][j] == taula[i+2][j+2] &&
-                        taula[i][j] == taula[i+3][j+3]) {
+                        table[i][j] != Token.Empty &&
+                        table[i][j] == table[i+1][j+1] &&
+                        table[i][j] == table[i+2][j+2] &&
+                        table[i][j] == table[i+3][j+3]) {
                     return true;
                 }
 
                 if (i + 3 < rows && j - 3 >= 0 &&
-                        taula[i][j] != '.' &&
-                        taula[i][j] == taula[i+1][j-1] &&
-                        taula[i][j] == taula[i+2][j-2] &&
-                        taula[i][j] == taula[i+3][j-3]) {
+                        table[i][j] != Token.Empty &&
+                        table[i][j] == table[i+1][j-1] &&
+                        table[i][j] == table[i+2][j-2] &&
+                        table[i][j] == table[i+3][j-3]) {
                     return true;
                 }
             }

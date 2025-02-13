@@ -2,9 +2,9 @@ public class Player {
 
     private String name;
 
-    private char token;
+    private Token token;
 
-    public Player(String name, char token) {
+    public Player(String name, Token token) {
         this.name = name;
         this.token = token;
     }
@@ -13,7 +13,7 @@ public class Player {
         return name;
     }
 
-    public char getToken() {
+    public Token getToken() {
         return token;
     }
 }
